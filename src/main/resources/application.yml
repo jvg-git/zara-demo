@@ -1,0 +1,41 @@
+server:
+  port: 8080
+#  context-path: /rest
+  servlet:   context-path: /demo
+spring:
+  application:
+    name: Demo Zara Web Services
+  main:
+    banner-mode: "off"
+#    web-application-type: none
+  sql:
+    init.platform: h2    
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:file:./data/demo
+    username: sa
+    password: password
+#    platform: h2
+#    url: jdbc:h2:mem:test;MODE=PostgreSQL
+  h2:
+    console:
+      enabled: true
+  liquibase:
+    enabled: true
+#    change-log: ./db/changelog/db.changelog-master.xml
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+  quartz:
+    jdbc:
+      initialize-schema: always
+    job-store-type: jdbc
+logging: 
+  level: 
+    ROOT: INFO
+    org: 
+      hibernate: INFO
+      springframework: ERROR
+using:
+  spring:
+    schedulerFactory: false
